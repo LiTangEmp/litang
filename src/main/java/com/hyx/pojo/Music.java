@@ -1,6 +1,7 @@
 package com.hyx.pojo;
 
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Music {
     private Integer musicId;//音乐ID
     private String title;//音乐标题
