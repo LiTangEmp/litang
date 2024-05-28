@@ -2,6 +2,7 @@ package com.hyx.pojo;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +14,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Entity
 public class Music {
+    @Id
     private Integer musicId;//音乐ID
     private String title;//音乐标题
     private String genre;//音乐类型

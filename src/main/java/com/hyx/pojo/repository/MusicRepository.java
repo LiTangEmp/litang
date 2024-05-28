@@ -13,6 +13,6 @@ import java.util.Optional;
 public interface MusicRepository extends JpaRepository<Music, Long> {
     //扩展JPA功能
 
-    Optional<Music> findByMusicId(String musicId);
+    Optional<Music> findByMusicId(Integer musicId);
     //JPA自动在Impl层中进行数据库操作
 }
