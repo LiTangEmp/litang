@@ -2,8 +2,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://:3306/litangdb
-    username: root
-    password: 123456
+    username:
+    password:
 
   data:
     redis:
