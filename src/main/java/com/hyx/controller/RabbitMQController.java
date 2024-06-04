@@ -1,14 +1,17 @@
 package com.hyx.controller;
 
+import com.hyx.pojo.Message;
 import com.hyx.service.RabbitMQService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+
+/**
+ * RabbitMQController用于处理与RabbitMQ相关的HTTP请求。
+ * 通过RabbitMQService向RabbitMQ发送消息。
+ */
 @Slf4j
 @RestController
 @RequestMapping("/rabbitmq")
@@ -17,14 +20,14 @@ public class RabbitMQController {
     private final RabbitMQService rabbitMQService;
 
     @Autowired
-    public RabbitMQController(RabbitMQService rabbitMQService) {
+    public RabbitMQController(RabbitMQService rabbitMQService) {//构造函数注入RabbitMQService
         this.rabbitMQService = rabbitMQService;
     }
 
     @PostMapping("/sendMessage")
-    public ResponseEntity<String> sendMessage(@RequestParam("message") String message) {
+    public ResponseEntity<String> sendMessage(@RequestBody Message message) {
 
-        if (message == null || message.isEmpty()){
+        if (message == null || message.getContent() == null || message.getContent().isEmpty()){
             return ResponseEntity.badRequest().body("消息不能为空");
         }
         try {
