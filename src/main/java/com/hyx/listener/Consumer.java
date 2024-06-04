@@ -9,6 +9,6 @@ public class Consumer {
 
     @RabbitListener(queues = "messageQueue")
     public void receiveMessage(String message) {
-        System.out.println("Received message: " + message);
+        System.out.println("收到消息: " + message);
     }
 }

@@ -1,12 +1,15 @@
 package com.hyx.controller;
 
 import com.hyx.service.RabbitMQService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/rabbitmq")
 public class RabbitMQController {
@@ -19,9 +22,21 @@ public class RabbitMQController {
     }
 
     @PostMapping("/sendMessage")
-    public String sendMessage(@RequestParam("message") String message) {
-        rabbitMQService.sendMessage(message);
-        return "Message sent successfully: " + message;
+    public ResponseEntity<String> sendMessage(@RequestParam("message") String message) {
+
+        if (message == null || message.isEmpty()){
+            return ResponseEntity.badRequest().body("消息不能为空");
+        }
+        try {
+            log.info("开始发送消息：{}", message);
+            rabbitMQService.sendMessage(message);
+            log.info("发送消息成功：{}", message);
+            return ResponseEntity.ok("发送消息成功");
+        }catch (Exception e){
+            e.printStackTrace();
+            log.info("发送消息失败：{}", message);
+            return ResponseEntity.badRequest().body("发送消息失败");
+        }
     }
 }
 

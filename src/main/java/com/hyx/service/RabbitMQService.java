@@ -16,7 +16,7 @@ public class RabbitMQService {
 
     public void sendMessage(String message) {
         amqpTemplate.convertAndSend("messageQueue", message);
-        System.out.println("Message sent: " + message);
+        System.out.println("发送消息: " + message);
     }
 }
 

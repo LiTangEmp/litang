@@ -14,30 +14,14 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQConfig {
 
-//    @Bean
-//    public ConnectionFactory connectionFactory() {
-//        CachingConnectionFactory factory = new CachingConnectionFactory();
-//        factory.setHost("175.178.158.141");
-//        factory.setPort(5672);
-//        factory.setUsername("hyx");
-//        factory.setPassword("root");
-//        factory.setVirtualHost("hyx-vhost");
-//        return factory;
-//    }
 
     // 创建一个队列
     @Bean
     public Queue messageQueue() {
-        return new Queue("messageQueue", true); // durable queue
+        return new Queue("messageQueue", true);
     }
 
     // 创建一个监听容器工厂，用于消费者
-//    @Bean
-//    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
-//        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-//        factory.setConnectionFactory(connectionFactory());
-//        return factory;
-//    }
 
     @Bean
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
