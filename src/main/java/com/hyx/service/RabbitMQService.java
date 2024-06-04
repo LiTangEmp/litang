@@ -26,7 +26,7 @@ public class RabbitMQService {
 
 
     public void sendMessage(Message message) {
-        String jsonMessage = JSON.toJSONString(message);
+        String jsonMessage = JSON.toJSONString(message);//使用Fastjson的JSON.toJSONString()序列化消息
         amqpTemplate.convertAndSend("messageQueue", jsonMessage);// 发送消息到名为“messageQueue”消息队列
         System.out.println("发送消息: " + jsonMessage);
     }

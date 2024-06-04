@@ -22,7 +22,6 @@ public class RabbitMQConfig {
         return new Queue("messageQueue", true);
     }
 
-    // 定义Jackson2JsonMessageConverter的bean
     @Bean
     public Jackson2JsonMessageConverter jackson2JsonMessageConverter() {
         return new Jackson2JsonMessageConverter();
