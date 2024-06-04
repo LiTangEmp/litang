@@ -20,7 +20,7 @@ public class Consumer {
     public void receiveMessage(String message) {
 
         if (message != null){
-            System.out.println("接收到消息：" + message);//打印
+            System.out.println("接收到消息：" + message);
         }else{
             System.out.println("接收到空消息");
         }

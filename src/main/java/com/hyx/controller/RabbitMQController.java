@@ -26,7 +26,7 @@ public class RabbitMQController {
 
     @PostMapping("/sendMessage")
     public ResponseEntity<String> sendMessage(@RequestBody Message message) {
-    //检查是否为空
+
         if (message == null || message.getContent() == null || message.getContent().isEmpty()){
             return ResponseEntity.badRequest().body("消息不能为空");
         }

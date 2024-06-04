@@ -27,7 +27,7 @@ public class RabbitMQConfig {
         return new Jackson2JsonMessageConverter();
     }
 
-    // 创建一个监听容器工厂，用于消费者
+    // 创建一个监听容器工厂用于消费者
 
     @Bean
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory , Jackson2JsonMessageConverter converter) {
