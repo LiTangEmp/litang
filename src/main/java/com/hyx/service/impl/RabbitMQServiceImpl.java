@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * 用于发送消息到RabbitMQ。
- * 利用Spring框架AmqpTemplate来简化消息发送的操作。
+ * 利用Spring框架的AmqpTemplate来简化消息发送的操作。
  */
 @Service
 public class RabbitMQServiceImpl implements RabbitMQService {

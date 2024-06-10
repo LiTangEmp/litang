@@ -8,7 +8,10 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+/**
+ * 用于发送消息到RabbitMQ。
+ * 利用Spring框架AmqpTemplate来简化消息发送的操作。
+ */
 @Service
 public interface RabbitMQService {
 
